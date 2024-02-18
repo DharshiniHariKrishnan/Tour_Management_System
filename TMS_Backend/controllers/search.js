@@ -1,5 +1,5 @@
-import places from "../models/places.js";
-export const searchPlace = async (req, res) => {
+const places = require("../models/places.js");
+const searchPlace = async (req, res) => {
   const input = req.query.q;
   const regex = new RegExp(`^${input}`, "i");
   //   console.log(regex, "regex");
@@ -11,3 +11,7 @@ export const searchPlace = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
+
+module.exports = {
+  searchPlace
+}
